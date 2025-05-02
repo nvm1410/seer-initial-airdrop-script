@@ -30,6 +30,7 @@ export async function fetchMarkets(chainId) {
             parentOutcome
             wrappedTokens
             creator
+            finalizeTs
           }
         }`;
         const results = await fetch(SUBGRAPHS['seer'][chainId], {
@@ -69,7 +70,7 @@ export async function getAllTokens(chainId) {
         },
         {},
     );
-    return markets.reduce(
+    const tokens = markets.reduce(
         (acum, market) => {
             const parentMarket = marketIdToMarket[market.parentMarket.id]
             const parentTokenId = parentMarket ? parentMarket.wrappedTokens[Number(market.parentOutcome)] : undefined
@@ -84,5 +85,23 @@ export async function getAllTokens(chainId) {
         },
         [],
     );
+    return { tokens, markets }
+}
 
+export function getTokensByTimestamp(markets, timestamps) {
+    return timestamps.reduce((acc, timestamp) => {
+        acc[timestamp.toString()] = markets.reduce(
+            (acum, market) => {
+                if (Number(market.finalizeTs) < timestamp) {
+                    for (let i = 0; i < market.wrappedTokens.length; i++) {
+                        const tokenId = market.wrappedTokens[i];
+                        acum[tokenId] = true
+                    }
+                }
+                return acum;
+            },
+            {},
+        );
+        return acc
+    }, {})
 }

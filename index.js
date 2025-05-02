@@ -1,12 +1,13 @@
 import fs from 'fs';
 import pLimit from "p-limit";
 import { gnosis, mainnet } from 'wagmi/chains';
-import { getAllTokens } from './src/getAllTokens.js';
+import { getAllTokens, getTokensByTimestamp } from './src/getAllTokens.js';
 import { getAllTransfers, getHoldersAtTimestamp } from './src/getAllTransfers.js';
 import { getAllLiquidityEvents, getLiquidityBalancesAtTimestamp } from './src/getLiquidityBalances.js';
 import { getPOHVerifiedUsers, isPOHVerifiedUserAtTime } from './src/getPOHVerifiedUsers.js';
 import { getPrices } from './src/getPrices.js';
 import { getRandomTimestamps, parseToCsv } from './src/utils.js';
+import { START_TIME } from './src/constants.js';
 
 // import timestamps from './data/timestamps.json' with {type: 'json'}
 // import transfers from './data/transfers.json' with {type: 'json'}
@@ -14,12 +15,9 @@ import { getRandomTimestamps, parseToCsv } from './src/utils.js';
 // import processedPrices from './data/processedPrices.json' with {type: 'json'}
 // import requests from './data/requests.json' with {type: 'json'}
 
-const START_TIME = {
-    [gnosis.id]: 1728416320,
-    [mainnet.id]: 1728082727
-}
+
 const SNAPSHOT_COUNT = 30
-const BATCH_SIZE = 30
+const BATCH_SIZE = 20
 
 async function getOutcomeTokensValueSnapshots(chainId) {
     try {
@@ -27,21 +25,22 @@ async function getOutcomeTokensValueSnapshots(chainId) {
         // get timestamps
         const timestamps = getRandomTimestamps(START_TIME[chainId], SNAPSHOT_COUNT)
         // get tokens
-        const gnosisTokens = await getAllTokens(chainId)
+        const { tokens, markets } = await getAllTokens(chainId)
+        const tokensByTimestamp = getTokensByTimestamp(markets, timestamps)
         // get all transfers
         const transfers = await getAllTransfers(chainId)
         // get all liquidity events
-        const liquidityEvents = await getAllLiquidityEvents(chainId, gnosisTokens)
+        const liquidityEvents = await getAllLiquidityEvents(chainId, tokens)
         // get poh verified users
         const requests = await getPOHVerifiedUsers(chainId)
         // get prices at timestamps
         const limit = pLimit(10);
         const awaitList = []
-        const batchCount = Math.ceil(gnosisTokens.length / BATCH_SIZE)
+        const batchCount = Math.ceil(tokens.length / BATCH_SIZE)
         for (const timestamp of timestamps) {
             for (let i = 0; i < batchCount; i++) {
                 awaitList.push(limit(() => {
-                    return getPrices(gnosisTokens.slice(BATCH_SIZE * i, BATCH_SIZE * (i + 1)), timestamp, chainId)
+                    return getPrices(tokens.slice(BATCH_SIZE * i, BATCH_SIZE * (i + 1)), timestamp, chainId)
                 }))
             }
         }
@@ -62,6 +61,9 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                     users[holderAddress] = {}
                 }
                 users[holderAddress]['directHolding'] = (users[holderAddress]['directHolding'] ?? 0) + Object.entries(tokenBalanceMapping).reduce((acc, [tokenId, tokenBalance]) => {
+                    if (!tokensByTimestamp[timestamp.toString()][tokenId]) {
+                        return acc
+                    }
                     return acc + (processedPrices[timestamp.toString()][tokenId] ?? 0) * tokenBalance
                 }, 0)
             })
@@ -70,6 +72,9 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                     users[holderAddress] = {}
                 }
                 users[holderAddress]['indirectHolding'] = (users[holderAddress]['indirectHolding'] ?? 0) + Object.entries(tokenBalanceMapping).reduce((acc, [tokenId, tokenBalance]) => {
+                    if (!tokensByTimestamp[timestamp.toString()][tokenId]) {
+                        return acc
+                    }
                     return acc + (processedPrices[timestamp.toString()][tokenId] ?? 0) * tokenBalance
                 }, 0)
             })
@@ -109,6 +114,7 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                 { key: 'totalHolding', title: 'Total Holding (sDAI)' },
             ], finalData)
         fs.writeFileSync(`./data/csv-${chainId}.csv`, csv)
+
     } catch (e) {
         console.log(e)
         fs.writeFileSync('./data/error.json', JSON.stringify(e, null, 4))

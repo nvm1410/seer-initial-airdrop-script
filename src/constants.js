@@ -90,3 +90,8 @@ export const RPC_URLS = {
 export const SER_LPP = {
     [gnosis.id]: '0xa7a7f8d1770c08e2e1f55d8c6427c1f8213a34da'
 }
+
+export const START_TIME = {
+    [gnosis.id]: 1728416320,
+    [mainnet.id]: 1728082727
+}
