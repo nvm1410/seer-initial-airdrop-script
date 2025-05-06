@@ -87,8 +87,8 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                         isPOHUser,
                         timestamp,
                         totalHolding,
-                        // directHolding: holderData.directHolding ?? 0,
-                        // indirectHolding: holderData.indirectHolding ?? 0
+                        directHolding: holderData.directHolding ?? 0,
+                        indirectHolding: holderData.indirectHolding ?? 0
                     })
                 }
             }
@@ -102,16 +102,18 @@ async function getOutcomeTokensValueSnapshots(chainId) {
             {
                 ...x,
                 totalHolding: x.totalHolding.toLocaleString(),
-                isPOHUser: x.isPOHUser ? 'Yes' : 'No'
-                // directHolding: x.directHolding.toLocaleString(),
-                // indirectHolding: x.indirectHolding.toLocaleString()
+                isPOHUser: x.isPOHUser ? 'Yes' : 'No',
+                directHolding: x.directHolding.toLocaleString(),
+                indirectHolding: x.indirectHolding.toLocaleString()
             }))
         const csv = parseToCsv(
             [
                 { key: 'address', title: 'Address' },
                 { key: 'isPOHUser', title: 'Is POH User' },
                 { key: 'timestamp', title: 'Timestamp' },
-                { key: 'totalHolding', title: 'Total Holding (sDAI)' },
+                { key: 'directHolding', title: 'Direct Holdings (sDAI)' },
+                { key: 'indirectHolding', title: 'Indirect Holdings (sDAI)' },
+                { key: 'totalHolding', title: 'Total Holdings (sDAI)' },
             ], finalData)
         fs.writeFileSync(`./data/csv-${chainId}.csv`, csv)
 
