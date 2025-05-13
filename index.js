@@ -78,17 +78,31 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                     return acc + (processedPrices[timestamp.toString()][tokenId] ?? 0) * tokenBalance
                 }, 0)
             })
+            let total = 0
+            let pohTotal = 0
             for (const [holderAddress, holderData] of Object.entries(users)) {
-                const totalHolding = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
-                if (totalHolding.toLocaleString() !== '0') {
+                const totalHoldingPerUser = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
+                const isPOHUser = isPOHVerifiedUserAtTime(requests, holderAddress, timestamp)
+                total += totalHoldingPerUser
+                if (isPOHUser) {
+                    pohTotal += Math.sqrt(totalHoldingPerUser)
+                }
+            }
+            for (const [holderAddress, holderData] of Object.entries(users)) {
+                const totalHoldingPerUser = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
+                if (totalHoldingPerUser.toLocaleString() !== '0') {
                     const isPOHUser = isPOHVerifiedUserAtTime(requests, holderAddress, timestamp)
+                    const shareOfHolding = totalHoldingPerUser / total
+                    const shareOfHoldingPoh = isPOHUser ? (Math.sqrt(totalHoldingPerUser) / pohTotal) : 0
                     finalData.push({
                         address: holderAddress,
                         isPOHUser,
                         timestamp,
-                        totalHolding,
+                        totalHolding: totalHoldingPerUser,
                         directHolding: holderData.directHolding ?? 0,
-                        indirectHolding: holderData.indirectHolding ?? 0
+                        indirectHolding: holderData.indirectHolding ?? 0,
+                        shareOfHolding,
+                        shareOfHoldingPoh
                     })
                 }
             }
@@ -104,7 +118,9 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                 totalHolding: x.totalHolding.toLocaleString(),
                 isPOHUser: x.isPOHUser ? 'Yes' : 'No',
                 directHolding: x.directHolding.toLocaleString(),
-                indirectHolding: x.indirectHolding.toLocaleString()
+                indirectHolding: x.indirectHolding.toLocaleString(),
+                shareOfHolding: (x.shareOfHolding * 100).toFixed(4) + '%',
+                shareOfHoldingPoh: x.shareOfHoldingPoh ? (x.shareOfHoldingPoh * 100).toFixed(4) + '%' : '0%'
             }))
         const csv = parseToCsv(
             [
@@ -114,12 +130,14 @@ async function getOutcomeTokensValueSnapshots(chainId) {
                 { key: 'directHolding', title: 'Direct Holdings (sDAI)' },
                 { key: 'indirectHolding', title: 'Indirect Holdings (sDAI)' },
                 { key: 'totalHolding', title: 'Total Holdings (sDAI)' },
+                { key: 'shareOfHolding', title: 'Share of Holdings' },
+                { key: 'shareOfHoldingPoh', title: 'Share of Holdings (PoH Users)' },
             ], finalData)
         fs.writeFileSync(`./data/csv-${chainId}.csv`, csv)
 
     } catch (e) {
         console.log(e)
-        fs.writeFileSync('./data/error.json', JSON.stringify(e, null, 4))
+        // fs.writeFileSync('./data/error.json', JSON.stringify(e, null, 4))
     }
 }
 // getOutcomeTokensValueSnapshots(gnosis.id)
