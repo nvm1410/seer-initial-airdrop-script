@@ -1,0 +1,370 @@
+[
+    {
+        "amount0": "2.000163673196433694",
+        "amount1": "3.99999999999999955",
+        "id": "0x764d0fa2e349aede741b39d0797f5087444c88682703b53b95decbb511ea62be#1",
+        "origin": "0xefb8e220f012241a00f5dae4a5b2c473a742a63a",
+        "timestamp": "1728098063",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd033d3a433073e06d9b5b4b4301ad2a3fb61a896",
+            "symbol": "KAMALA_HARRIS"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "0.811715828178890054",
+        "amount1": "0.497661439867698488",
+        "id": "0x7cd04f5825c9fe5c3f83e7f49de78f592afe9a8b2b7ed8a6088546c896595998#2",
+        "origin": "0xefb8e220f012241a00f5dae4a5b2c473a742a63a",
+        "timestamp": "1728099479",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd033d3a433073e06d9b5b4b4301ad2a3fb61a896",
+            "symbol": "KAMALA_HARRIS"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "92543.418436706055791156",
+        "amount1": "179832.297244211667388105",
+        "id": "0x54dc4cdad6299654f9bd773648b078ffa625c2bcb114ac95144585c5b7de946b#1",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728322343",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "87288.549069482622912004",
+        "amount1": "162241.877665770470743538",
+        "id": "0xe994d6e620329a38464ef44d92d4ead0341dad15f1e9f4f5b5c1cd5b282ed810#1",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728322667",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "111482.710788223121800425",
+        "amount1": "0",
+        "id": "0x66fedabf5493af52c80deedc7a3d95a6043070284bff937025c16b307c205f72#12",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728323375",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "61.479994861081313653",
+        "amount1": "104.590160522619408527",
+        "id": "0x03cf23c7b369cb81f59e7e778704eaef27cecf0de9fc2fc455feb41d3eb674a2#31",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728324107",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "26229.796408832729620491",
+        "amount1": "44622.297433080666815132",
+        "id": "0x03cf23c7b369cb81f59e7e778704eaef27cecf0de9fc2fc455feb41d3eb674a2#32",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728324107",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "80734.837976909386086257",
+        "amount1": "179664.088064631853913995",
+        "id": "0xaeefd9136c2b679eed9636898d9a7f3cb49dab85ea48ff5d8a9c441c439b514e#1",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1729625375",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "117437.169251134544426219",
+        "amount1": "153681.678523096726781328",
+        "id": "0xa56f07ff1e975a85d98af0151c05c16b5617d5905b10c93f194e88174f0f4a7b#1",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1729625423",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "3322648.79155060154237655",
+        "amount1": "0",
+        "id": "0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4#53",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554115",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "28.688715630171521667",
+        "amount1": "0",
+        "id": "0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4#55",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554115",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "3322648.79155060154237655",
+        "amount1": "0",
+        "id": "0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665#14",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554127",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "43.231512841817619038",
+        "amount1": "0",
+        "id": "0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665#16",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554127",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "mint"
+    },
+    {
+        "amount0": "111482.710788223121800425",
+        "amount1": "127031.877854638977057105",
+        "id": "0xfcb04bf5da6ec3beec33feff224f2476113c42658a594ed4b540e55f27198459#11",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728323135",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "0",
+        "amount1": "0",
+        "id": "0x03cf23c7b369cb81f59e7e778704eaef27cecf0de9fc2fc455feb41d3eb674a2#30",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1728324107",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "92620.125498861023188776",
+        "amount1": "179664.088064631360800535",
+        "id": "0x36e1150d92ded62c0681979b19f114e5483c27da13bb433079c0dce5bf0fcfcd#12",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1729624451",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "76979.150441943707464984",
+        "amount1": "153681.678523096726781328",
+        "id": "0x144a4a4e94bfe358b39bd0a79c18c7ab9729fd01568a2fd643663ba9194fa2c9#51",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1729624595",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "103500.495762148654716117",
+        "amount1": "115597.783196854818709506",
+        "id": "0x3085e754fd7116f274faf4812a556cf0c3e0a32975d4b3a1caf9506fe7f25a20#12",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1730848535",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "82992.366675828683198119",
+        "amount1": "207104.591296607383689556",
+        "id": "0xb86b514ee0fc89aaecdfa221f9e6f706e298040718dc610c5ec7d003fcd9b2b2#16",
+        "origin": "0x56cf0ff00fd6cfb23ce964c6338b228b0fa76640",
+        "timestamp": "1730848643",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "0",
+        "amount1": "0",
+        "id": "0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4#54",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554115",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "3322677.480266231713898216",
+        "amount1": "0",
+        "id": "0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4#56",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554115",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "symbol": "TRUMP2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "0",
+        "amount1": "0",
+        "id": "0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665#15",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554127",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "burn"
+    },
+    {
+        "amount0": "3322692.023063443359995587",
+        "amount1": "0",
+        "id": "0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665#17",
+        "origin": "0x7ff2aa9cb7ad90315f86782bca736a15aebe2c2d",
+        "timestamp": "1736554127",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "burn"
+    }
+]

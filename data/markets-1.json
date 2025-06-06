@@ -1,0 +1,312 @@
+[
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0x997f67ee0934db865b0101c597c16b8c30d0139f",
+        "finalizeTs": "33260976000",
+        "id": "0x08917e46ab5ed6222e0fbd875f3c3a82f29bdefb",
+        "marketName": "Which party will win the Australian Federal Election?",
+        "outcomes": [
+            "Liberal Party",
+            "Labor Party",
+            "Australian Greens",
+            "Invalid result"
+        ],
+        "outcomesSupply": "139696580313290807595",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0x08917e46ab5ed6222e0fbd875f3c3a82f29bdefb0xf2dc38ab62d5b11ec84f9a928f130bab0178202a7334d5ca09ea9b46f0b88e0d0"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0xe4386ba36496ca0a4d6cc860eef3d88236b6859f",
+            "0x9b1fa1e31c3eb8bc6980a73c3e92c486810965f2",
+            "0x28f195bfe1e0df5081700bf7d8aa0e2e1386854f",
+            "0xb9e023fd82056c554cfa38599ed13083d67045ff"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0xcad3f887275c3b8409140ea61ebb0b9751eda287",
+        "finalizeTs": "1731196475",
+        "id": "0x2ff966fbd2a4247db21fed9abf5bef628f43670e",
+        "marketName": "Who will win the 2024 U.S. Presidential Election?",
+        "outcomes": [
+            "Kamala Harris",
+            "Donald Trump",
+            "Invalid result"
+        ],
+        "outcomesSupply": "26033805210216897000419",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "1",
+            "0"
+        ],
+        "payoutReported": true,
+        "questions": [
+            {
+                "id": "0x2ff966fbd2a4247db21fed9abf5bef628f43670e0x5190fe2ba9c17f91c1c2b137034bfa61e8198827c644d857d7619b546e5cc5040"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "0xe5d9c627f858e45675ed1f85a703828508385785",
+            "0x87a132a41681e215e00ccd1d8e4df7c68fec3564"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0x6fb7f103ba0ad30258ef8d18030bc46e4e749994",
+        "finalizeTs": "33260976000",
+        "id": "0x3091b79a64857d978818121f0fc6e30246adb46e",
+        "marketName": "who is the worst president?",
+        "outcomes": [
+            "Putin",
+            "Trump",
+            "Zeliski",
+            "Invalid result"
+        ],
+        "outcomesSupply": "0",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0x3091b79a64857d978818121f0fc6e30246adb46e0x977edcd783ce9cf361ed00e74f0f3c867adb6b74f29068949485b2e0c40a23530"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0xd6e79a6f911fd4ea48ea6cccf3b0029d279a5e83",
+            "0xfd271f48d37e0ddb8c032ebb671105f4d04eb1f8",
+            "0xaa4e36e4d0d3bab48a1d98fe050cde7e7f1191d4",
+            "0x64a735bee90b5272b68105c4c88c47a7a68c7953"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0x2f1ea6322c976925f5121674196a364c05a2eec9",
+        "finalizeTs": "33260976000",
+        "id": "0x3d2576c6ac5ca4e84b27ef6a71ea00c718ba85ab",
+        "marketName": "Circle Market Cap Above its IPO Price One Week After Initial Listing?",
+        "outcomes": [
+            "Yes",
+            "No",
+            "Invalid result"
+        ],
+        "outcomesSupply": "0",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0x3d2576c6ac5ca4e84b27ef6a71ea00c718ba85ab0x410fb105683afa4e4869d23bac85eb4b74b4d35642c9c2be82c5d51be433c8ed0"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0x94c965ce849aadd2f0f0893f41a20c303482d8db",
+            "0x9f272a7a1e0eb767de343d0f721d164158d0baf3",
+            "0x5c391465ae8451e90db4a8daeb4f686af81b16b7"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0x5d4adb6eca975bab50d2490ccdfe5d9cd1bf4882",
+        "finalizeTs": "33260976000",
+        "id": "0xade8019688401c2c66540fe934771863969830b0",
+        "marketName": "Who will win the 2024 U.S. Presidential Election?",
+        "outcomes": [
+            "Kamala Harris",
+            "Donald Trump",
+            "Invalid result"
+        ],
+        "outcomesSupply": "4597661439867698163",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0xade8019688401c2c66540fe934771863969830b00x11a99c45da67891dbbc17f8dce9ad46aba24f7f6678d769dca737faec7ce8b070"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0xd033d3a433073e06d9b5b4b4301ad2a3fb61a896",
+            "0x448faf013067361ce81ee82028276b7aaac4a729",
+            "0x1f557a67fb4923c70a01df66a47e06178b1d89c0"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0x2e46ae800cc58195990819b0ea1b3816510ecf99",
+        "finalizeTs": "1744450259",
+        "id": "0xbe393828a1e4e610cffd3028f358708f5cff1718",
+        "marketName": "Yoon out as president of South Korea before april",
+        "outcomes": [
+            "Yes",
+            "No",
+            "Invalid result"
+        ],
+        "outcomesSupply": "0",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0xbe393828a1e4e610cffd3028f358708f5cff17180x58a8afb38413ea6584d7f04273e8ab3dca598c06a42587a762d04f4973da06570"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0x208550ae140d468eb3b244ed025670f0e7af2859",
+            "0xf60a2492aaddb030ee9d637228ed40ec593f9045",
+            "0x7002591f328ad3ba6af26aae3ec1db5769f5a4e4"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0x5d4adb6eca975bab50d2490ccdfe5d9cd1bf4882",
+        "finalizeTs": "33260976000",
+        "id": "0xce3672bf760a59aa7c41e2df386b51ef41f09cc7",
+        "marketName": "Who will win the 2024 U.S. Presidential Election?",
+        "outcomes": [
+            "Kamala Harris",
+            "Donald Trump",
+            "Invalid result"
+        ],
+        "outcomesSupply": "4597661439867698163",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0xce3672bf760a59aa7c41e2df386b51ef41f09cc70x11a99c45da67891dbbc17f8dce9ad46aba24f7f6678d769dca737faec7ce8b070"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0xd033d3a433073e06d9b5b4b4301ad2a3fb61a896",
+            "0x448faf013067361ce81ee82028276b7aaac4a729",
+            "0x1f557a67fb4923c70a01df66a47e06178b1d89c0"
+        ],
+        "chainId": 1
+    },
+    {
+        "collateralToken": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+        "collateralToken1": "0x0000000000000000000000000000000000000000",
+        "collateralToken2": "0x0000000000000000000000000000000000000000",
+        "creator": "0xb2a33ae0e07fd2ca8dbde9545f6ce0b3234dc4e8",
+        "finalizeTs": "1738420727",
+        "id": "0xd8221fe7ce9ee13915a0b8bc3b5a391f49ac65c7",
+        "marketName": "Which candidate will win Pennsylvania in the 2024 US election?",
+        "outcomes": [
+            "Harris",
+            "Trump",
+            "Invalid result"
+        ],
+        "outcomesSupply": "0",
+        "parentMarket": {
+            "id": "0x0000000000000000000000000000000000000000"
+        },
+        "parentOutcome": "0",
+        "payoutNumerators": [
+            "0",
+            "0",
+            "0"
+        ],
+        "payoutReported": false,
+        "questions": [
+            {
+                "id": "0xd8221fe7ce9ee13915a0b8bc3b5a391f49ac65c70xe6bd07f1d5de2ab5266e94083c49bcfd364707385e633362d52d9d6a562c5ca70"
+            }
+        ],
+        "templateId": "2",
+        "type": "Generic",
+        "wrappedTokens": [
+            "0xad5c45c9a78cc257d8385325ec93e4dd0a36e6a0",
+            "0x023a32d0c6bc7ebc2a2d5611e7781e7665ffc55d",
+            "0x38ba8af8fd5821b60b1885338b279b0ba510ef3a"
+        ],
+        "chainId": 1
+    }
+]

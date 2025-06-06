@@ -1,5 +1,6 @@
 import gql from 'graphql-tag';
 import { gnosis, mainnet } from 'wagmi/chains';
+import 'dotenv/config'
 
 export const NATIVE_TOKEN = "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee";
 
@@ -83,8 +84,8 @@ export const COLLATERAL_TOKENS = {
 };
 
 export const RPC_URLS = {
-    [gnosis.id]: 'https://gnosis-pokt.nodies.app',
-    [mainnet.id]: 'https://eth-pokt.nodies.app'
+    [gnosis.id]: process.env.GNOSIS_RPC_URL ?? 'https://gnosis-pokt.nodies.app',
+    [mainnet.id]: process.env.MAINNET_RPC_URL ?? 'https://eth-pokt.nodies.app'
 }
 
 export const SER_LPP = {
@@ -94,4 +95,9 @@ export const SER_LPP = {
 export const START_TIME = {
     [gnosis.id]: 1728416320,
     [mainnet.id]: 1728082727
+}
+
+export const START_BLOCK = {
+    [gnosis.id]: 36404701,
+    [mainnet.id]: 20894990
 }

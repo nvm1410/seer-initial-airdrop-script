@@ -98,6 +98,28 @@ export function getRandomTimestamps(startTimestamp, count) {
   return Array.from(timestamps).sort((a, b) => a - b);
 }
 
+export function getRandomNextDayTimestamp(timestampInSeconds, lastDateInSeconds) {
+  // Convert seconds to milliseconds
+  const date = new Date(timestampInSeconds * 1000);
+
+  // Set to start of next day (00:00:00)
+  date.setDate(date.getDate() + 1);
+  date.setHours(0, 0, 0, 0);
+
+  // Get milliseconds for start of next day
+  const nextDayStartMs = date.getTime();
+  const nextDayStartSeconds = Math.floor(date.getTime()/1000);
+  if (nextDayStartSeconds >= lastDateInSeconds) {
+    return
+  }
+  let randomTimestampSeconds;
+  do {
+    randomTimestampSeconds = nextDayStartSeconds + Math.random() * 86400;
+  } while (randomTimestampSeconds > lastDateInSeconds);
+
+  return Math.floor(randomTimestampSeconds)
+}
+
 export function isTwoStringsEqual(str1, str2) {
   return str1?.trim() && str2?.trim()?.toLocaleLowerCase() === str1?.trim()?.toLocaleLowerCase();
 }
