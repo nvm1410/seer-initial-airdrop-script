@@ -208,6 +208,22 @@
         "type": "mint"
     },
     {
+        "amount0": "0.1",
+        "amount1": "0",
+        "id": "0x184823cd801ddec651492e09a6a605ba569a96eac2a91bb199e35c9cd340716c#18",
+        "origin": "0xd276c9213a9612c45b3be277ba68ea0ab0a85747",
+        "timestamp": "1748825231",
+        "token0": {
+            "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+            "symbol": "sDAI"
+        },
+        "token1": {
+            "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+            "symbol": "HARRIS2024"
+        },
+        "type": "mint"
+    },
+    {
         "amount0": "111482.710788223121800425",
         "amount1": "127031.877854638977057105",
         "id": "0xfcb04bf5da6ec3beec33feff224f2476113c42658a594ed4b540e55f27198459#11",

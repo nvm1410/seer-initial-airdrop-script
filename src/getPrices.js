@@ -52,6 +52,7 @@ export async function getPrices(tokens, startTime, chainId) {
     );
 }
 
+
 export function getPricesFromJson(tokens, startTime, chainId) {
     if (tokens.length === 0) {
         return {};

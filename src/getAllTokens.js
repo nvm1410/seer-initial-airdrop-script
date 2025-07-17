@@ -88,11 +88,13 @@ export async function getAllTokens(chainId) {
     return { tokens, markets }
 }
 
-export function getTokensByTimestamp(markets, timestamps) {
+export function getTokensByTimestamp(markets, timestamps, countResolved = false) {
     return timestamps.reduce((acc, timestamp) => {
         acc[timestamp.toString()] = markets.reduce(
             (acum, market) => {
-                if (Number(market.finalizeTs) < timestamp) {
+                // if not count resolved markets, get unresolved markets at that timestamp
+                const isMarketUnresolvedAtTimestamp = Number(market.finalizeTs) > timestamp
+                if (isMarketUnresolvedAtTimestamp || countResolved) {
                     for (let i = 0; i < market.wrappedTokens.length; i++) {
                         const tokenId = market.wrappedTokens[i];
                         acum[tokenId] = true

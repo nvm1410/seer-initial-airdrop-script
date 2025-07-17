@@ -1,0 +1,164 @@
+[
+    {
+        "blockNumber": "20896574",
+        "id": "0xa65b54b9007c29498a68af1cfcfc063e124715f9-0x764d0fa2e349aede741b39d0797f5087444c88682703b53b95decbb511ea62be-196",
+        "timestamp": "1728098063",
+        "token": {
+            "id": "0xa65b54b9007c29498a68af1cfcfc063e124715f9"
+        },
+        "totalSupply": "2828542856805555611"
+    },
+    {
+        "blockNumber": "20896691",
+        "id": "0xfbdecd21245e44a8dc7f0065c38c437daa4d4240-0x7cd04f5825c9fe5c3f83e7f49de78f592afe9a8b2b7ed8a6088546c896595998-304",
+        "timestamp": "1728099479",
+        "token": {
+            "id": "0xfbdecd21245e44a8dc7f0065c38c437daa4d4240"
+        },
+        "totalSupply": "1201628859427849048"
+    },
+    {
+        "blockNumber": "20915196",
+        "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4-0x54dc4cdad6299654f9bd773648b078ffa625c2bcb114ac95144585c5b7de946b-95",
+        "timestamp": "1728322343",
+        "token": {
+            "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4"
+        },
+        "totalSupply": "2458919405163055990169014"
+    },
+    {
+        "blockNumber": "20915223",
+        "id": "0x381a858af49f646052324c8656353701339f9e76-0xe994d6e620329a38464ef44d92d4ead0341dad15f1e9f4f5b5c1cd5b282ed810-420",
+        "timestamp": "1728322667",
+        "token": {
+            "id": "0x381a858af49f646052324c8656353701339f9e76"
+        },
+        "totalSupply": "119003605406532127329177"
+    },
+    {
+        "blockNumber": "20915262",
+        "id": "0x381a858af49f646052324c8656353701339f9e76-0xfcb04bf5da6ec3beec33feff224f2476113c42658a594ed4b540e55f27198459-97",
+        "timestamp": "1728323135",
+        "token": {
+            "id": "0x381a858af49f646052324c8656353701339f9e76"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "20915282",
+        "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2-0x66fedabf5493af52c80deedc7a3d95a6043070284bff937025c16b307c205f72-357",
+        "timestamp": "1728323375",
+        "token": {
+            "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2"
+        },
+        "totalSupply": "1639586435385711290585235"
+    },
+    {
+        "blockNumber": "20915343",
+        "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2-0x03cf23c7b369cb81f59e7e778704eaef27cecf0de9fc2fc455feb41d3eb674a2-296",
+        "timestamp": "1728324107",
+        "token": {
+            "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2"
+        },
+        "totalSupply": "2392605364319238417583351"
+    },
+    {
+        "blockNumber": "21023138",
+        "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4-0x36e1150d92ded62c0681979b19f114e5483c27da13bb433079c0dce5bf0fcfcd-220",
+        "timestamp": "1729624451",
+        "token": {
+            "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "21023150",
+        "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2-0x144a4a4e94bfe358b39bd0a79c18c7ab9729fd01568a2fd643663ba9194fa2c9-166",
+        "timestamp": "1729624595",
+        "token": {
+            "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "21023215",
+        "id": "0x84bd444e0fc068c411a1232b78edaccf0e405256-0xaeefd9136c2b679eed9636898d9a7f3cb49dab85ea48ff5d8a9c441c439b514e-90",
+        "timestamp": "1729625375",
+        "token": {
+            "id": "0x84bd444e0fc068c411a1232b78edaccf0e405256"
+        },
+        "totalSupply": "866306617332500400948860"
+    },
+    {
+        "blockNumber": "21023219",
+        "id": "0xc5fab3ea4beb1e39e85d7ec0c1ef37a4c93adccd-0xa56f07ff1e975a85d98af0151c05c16b5617d5905b10c93f194e88174f0f4a7b-103",
+        "timestamp": "1729625423",
+        "token": {
+            "id": "0xc5fab3ea4beb1e39e85d7ec0c1ef37a4c93adccd"
+        },
+        "totalSupply": "1832970775365802537330414"
+    },
+    {
+        "blockNumber": "21124666",
+        "id": "0x84bd444e0fc068c411a1232b78edaccf0e405256-0x3085e754fd7116f274faf4812a556cf0c3e0a32975d4b3a1caf9506fe7f25a20-322",
+        "timestamp": "1730848535",
+        "token": {
+            "id": "0x84bd444e0fc068c411a1232b78edaccf0e405256"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "21124675",
+        "id": "0xc5fab3ea4beb1e39e85d7ec0c1ef37a4c93adccd-0xb86b514ee0fc89aaecdfa221f9e6f706e298040718dc610c5ec7d003fcd9b2b2-167",
+        "timestamp": "1730848643",
+        "token": {
+            "id": "0xc5fab3ea4beb1e39e85d7ec0c1ef37a4c93adccd"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "21597563",
+        "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2-0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4-331",
+        "timestamp": "1736554115",
+        "token": {
+            "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2"
+        },
+        "totalSupply": "48866500012956151378526048"
+    },
+    {
+        "blockNumber": "21597563",
+        "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2-0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4-340",
+        "timestamp": "1736554115",
+        "token": {
+            "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "21597564",
+        "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4-0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665-159",
+        "timestamp": "1736554127",
+        "token": {
+            "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4"
+        },
+        "totalSupply": "45692338700148867654943435"
+    },
+    {
+        "blockNumber": "21597564",
+        "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4-0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665-168",
+        "timestamp": "1736554127",
+        "token": {
+            "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4"
+        },
+        "totalSupply": "0"
+    },
+    {
+        "blockNumber": "22613517",
+        "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4-0x184823cd801ddec651492e09a6a605ba569a96eac2a91bb199e35c9cd340716c-248",
+        "timestamp": "1748825231",
+        "token": {
+            "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4"
+        },
+        "totalSupply": "1375178105382162125"
+    }
+]

@@ -1,0 +1,26 @@
+specVersion: 1.3.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: FutarchyFactory
+    network: gnosis
+    source:
+      address: "0xa6cB18FCDC17a2B44E5cAd2d80a6D5942d30a345"
+      abi: FutarchyFactory
+      startBlock: 38290244
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.9
+      language: wasm/assemblyscript
+      entities:
+        - NewProposal
+      abis:
+        - name: FutarchyFactory
+          file: ./abis/FutarchyFactory.json
+      eventHandlers:
+        - event: NewProposal(indexed address,string,bytes32,bytes32)
+          handler: handleNewProposal
+      file: ./src/futarchy-factory.ts

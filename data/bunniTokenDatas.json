@@ -1,0 +1,51 @@
+[
+    {
+        "id": "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4",
+        "pool": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
+        "tickLower": 6840,
+        "tickUpper": 9000,
+        "totalSupply": "1375178105382162125"
+    },
+    {
+        "id": "0x381a858af49f646052324c8656353701339f9e76",
+        "pool": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778",
+        "tickLower": -887220,
+        "tickUpper": 887220,
+        "totalSupply": "0"
+    },
+    {
+        "id": "0x84bd444e0fc068c411a1232b78edaccf0e405256",
+        "pool": "0x085ab0280c1dca006aec0dc90ac943e3a04da647",
+        "tickLower": 8210,
+        "tickUpper": 14271,
+        "totalSupply": "0"
+    },
+    {
+        "id": "0xa65b54b9007c29498a68af1cfcfc063e124715f9",
+        "pool": "0x5f445055802aa9f720f69a02d946dac5ffa94385",
+        "tickLower": -887272,
+        "tickUpper": 887272,
+        "totalSupply": "2828542856805555611"
+    },
+    {
+        "id": "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2",
+        "pool": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778",
+        "tickLower": 5340,
+        "tickUpper": 7200,
+        "totalSupply": "0"
+    },
+    {
+        "id": "0xc5fab3ea4beb1e39e85d7ec0c1ef37a4c93adccd",
+        "pool": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912",
+        "tickLower": 2744,
+        "tickUpper": 5798,
+        "totalSupply": "0"
+    },
+    {
+        "id": "0xfbdecd21245e44a8dc7f0065c38c437daa4d4240",
+        "pool": "0x5f445055802aa9f720f69a02d946dac5ffa94385",
+        "tickLower": 0,
+        "tickUpper": 69081,
+        "totalSupply": "1201628859427849048"
+    }
+]

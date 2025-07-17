@@ -1,0 +1,822 @@
+[
+    {
+        "amount0": "0.089939288507706135",
+        "amount1": "-0.174344291283945565",
+        "id": "0x20b0e4c4ba8e08fd6251150e7cd76f1f6ee39ae8228608507f1f01a250cd7617#3",
+        "pool": {
+            "id": "0x5f445055802aa9f720f69a02d946dac5ffa94385"
+        },
+        "tick": "6309",
+        "timestamp": "1728180767"
+    },
+    {
+        "amount0": "-0.052258633066049085",
+        "amount1": "0.1",
+        "id": "0x75a46a574d42c4c552da1219de6234e715acbfd134d4e40c00b916a1c4fec8fd#4",
+        "pool": {
+            "id": "0x5f445055802aa9f720f69a02d946dac5ffa94385"
+        },
+        "tick": "6668",
+        "timestamp": "1728202271"
+    },
+    {
+        "amount0": "12500",
+        "amount1": "-20269.855999221238572802",
+        "id": "0x3ca3d6d823910122448d12be34d27174cf50b8e64f816e416a36751595b11747#2",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "3529",
+        "timestamp": "1728322847"
+    },
+    {
+        "amount0": "1029.366195803329621241",
+        "amount1": "-1445.789249925556176771",
+        "id": "0xceb2234eddf539b0764b612c16a01ae95382723c087ac6463c9da1ff35dc6100#3",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "3324",
+        "timestamp": "1728323015"
+    },
+    {
+        "amount0": "1046.782518343269946009",
+        "amount1": "-1440.362463707005185644",
+        "id": "0xe2b1863cc7b39b01d535fad39bf62ef40cd32dcc8cb70f5aaac7c57ff7375f4e#4",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "3118",
+        "timestamp": "1728323039"
+    },
+    {
+        "amount0": "5227.982119484680864316",
+        "amount1": "-6773.193444658461540353",
+        "id": "0x15761f8a243888d81675323c27583cabf3cc86da7cd7a6f68bee90f61ad37e81#5",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "2120",
+        "timestamp": "1728323051"
+    },
+    {
+        "amount0": "1743.119146661016654527",
+        "amount1": "-2114.024114447465759858",
+        "id": "0xc37ad498370305bbb9a6e6e0bb4c8fb7b39d5aab1666cc88bbdc50a8348bf566#6",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "1798",
+        "timestamp": "1728323051"
+    },
+    {
+        "amount0": "-5363.341836399006802731",
+        "amount1": "6773.192911344133077511",
+        "id": "0xe0c66fd6f3fb134fb450f8de5e393eca86005714cda93cbd333708058878bd3e#7",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "2809",
+        "timestamp": "1728323051"
+    },
+    {
+        "amount0": "2068.572205721774482144",
+        "amount1": "-2677.953446757252536672",
+        "id": "0x4b9d751a075fc0babf7bb364615b0eb7bcf64d24bc32009966eff71a57107190#8",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "2414",
+        "timestamp": "1728323087"
+    },
+    {
+        "amount0": "5000",
+        "amount1": "-5946.173926354505891478",
+        "id": "0xc3c8e835ccfab06d96a30f1c75a3cde6f28ad2cd371550ebd582ff2745a98e29#10",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "1305",
+        "timestamp": "1728323099"
+    },
+    {
+        "amount0": "1030.620697776806757897",
+        "amount1": "-1295.520498670108701126",
+        "id": "0xf03a06ccd9fc1d9c2c1f62fa38e75358440d3f9847b5e956fd968d6e32eebf64#9",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "2220",
+        "timestamp": "1728323099"
+    },
+    {
+        "amount0": "4291.901616062779556046",
+        "amount1": "-9359.692384848207285372",
+        "id": "0xc93b4e41be8da906bae40951e508bac297ff13f19d087dab18e7cbc6cb5697c2#2",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7801",
+        "timestamp": "1728323195"
+    },
+    {
+        "amount0": "-4266.221731121936782649",
+        "amount1": "9359.692384848207285372",
+        "id": "0x993dbce00f6b9af845d18e49cd7997edd80a89ff8409acfebe662ebab544bfdc#3",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7852",
+        "timestamp": "1728323279"
+    },
+    {
+        "amount0": "1051.031655474953961841",
+        "amount1": "-2296.490623222911200822",
+        "id": "0xe634c31802782c0935e1d036071f9507f46f08b3301345508acc56aaa4c7eab0#4",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7840",
+        "timestamp": "1728323279"
+    },
+    {
+        "amount0": "2000",
+        "amount1": "-4361.98333208247328303",
+        "id": "0xfab8f20dd2c539648b7414c607bbcf2ac3ac5ef1a5b05def5ff836a9fdb242e1#5",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7816",
+        "timestamp": "1728323279"
+    },
+    {
+        "amount0": "-1983.061010874925871913",
+        "amount1": "4351.078373752267099823",
+        "id": "0x30986cf7beffb1e0abed2852e1ddc6725b2ba1e28c99aacec135e77a3a31bee5#6",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7840",
+        "timestamp": "1728323327"
+    },
+    {
+        "amount0": "-15138.80076982136083277",
+        "amount1": "26216.02992557574446428",
+        "id": "0x44721ea71e3c8df1ac58493da3e3aa1ab6c2eaab1df7e71e0164eb3c01f16572#13",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5582",
+        "timestamp": "1728323399"
+    },
+    {
+        "amount0": "-1042.140415358208310577",
+        "amount1": "2290.74939666485392282",
+        "id": "0xcaf7153b1e3f7a002db157a5926c57be589c5cccc2a1873ec2f5fd551bcd9212#7",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7852",
+        "timestamp": "1728323411"
+    },
+    {
+        "amount0": "2000",
+        "amount1": "-4367.399559910582196528",
+        "id": "0xa6ee1b089d7b3a83dfdd3e3be3987d2145d6fc01e2539ee051cc0b73105645df#8",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7828",
+        "timestamp": "1728323483"
+    },
+    {
+        "amount0": "2000",
+        "amount1": "-3479.101103399026373521",
+        "id": "0x9cf678f72f56b8cad1eaec0a1e8d8486513c01cc2acede4748915c8e87d2491f#14",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5550",
+        "timestamp": "1728323495"
+    },
+    {
+        "amount0": "1883.108216716998721113",
+        "amount1": "-3265.568540773990513128",
+        "id": "0xa45c062cf8ff25cc9a003577687be92c947c444700061c6c5e5388642b487d08#15",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5520",
+        "timestamp": "1728323495"
+    },
+    {
+        "amount0": "500",
+        "amount1": "-865.413541133184772068",
+        "id": "0x17929f7b6ac4746e1fb9c81f8b8ec8c0d09355400db4d8f04a80788636ee2cfb#16",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5512",
+        "timestamp": "1728323519"
+    },
+    {
+        "amount0": "6473.857123149573163253",
+        "amount1": "-11142.854691899055591449",
+        "id": "0xae892ebe44d8fe8502aceaa9ea5e4648469a765a8cde92df44d8196d246f9809#17",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5408",
+        "timestamp": "1728323531"
+    },
+    {
+        "amount0": "6668.738151357680940448",
+        "amount1": "-14487.117367945064854907",
+        "id": "0x3154618f9b735ff3eecfc1eaa9bacbde78b89c2746d16ebbc80d378feda38391#9",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7748",
+        "timestamp": "1728323567"
+    },
+    {
+        "amount0": "1057.667308516766519142",
+        "amount1": "-1809.548363530185951272",
+        "id": "0xae1268f3204a16ba9452e59b2d998ecda72e0bb92043298d976bb2ec7bbb5559#18",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5392",
+        "timestamp": "1728323591"
+    },
+    {
+        "amount0": "3269.721182931968349524",
+        "amount1": "-5574.895595063574029446",
+        "id": "0x45db7265a8051a02eb55563b7b54cea63659b76b7e52076a3f46681d9a9edacb#19",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "-887272",
+        "timestamp": "1728323627"
+    },
+    {
+        "amount0": "-39624.41625348940325928",
+        "amount1": "70000",
+        "id": "0xe8c2fe22c1c0f4e316b84c6b2e5b0e2e3019fae08cf95c8ce6389de54752bab7#20",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5981",
+        "timestamp": "1728323651"
+    },
+    {
+        "amount0": "1028.99036431731295142",
+        "amount1": "-1864.228472024712158311",
+        "id": "0x82f444d9ed3a2e1a721f0487bd502120bb971ca183f167a6afd9ceec4e65620c#21",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5964",
+        "timestamp": "1728323687"
+    },
+    {
+        "amount0": "218",
+        "amount1": "-394.548541257432536949",
+        "id": "0x9fb4376f1b453c09750680c3d6f76e41ce1acdf6479c88ddc429da5626086a9c#22",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5961",
+        "timestamp": "1728323699"
+    },
+    {
+        "amount0": "3799.194918523984653766",
+        "amount1": "-6853.436310466698429217",
+        "id": "0x4029850e4e89288cfc23ddef7d1223026e02cab64ca6196c7b29b70af8caf028#23",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5898",
+        "timestamp": "1728323759"
+    },
+    {
+        "amount0": "933.315946044178259877",
+        "amount1": "-1677.1233949970886252",
+        "id": "0xa911885f04b18a242a741a5ff04b6a2e33b9c5d48ef75c685b8155d2c6bf674b#24",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5883",
+        "timestamp": "1728323807"
+    },
+    {
+        "amount0": "431.291325886281494082",
+        "amount1": "-774.146815508657612766",
+        "id": "0x662fb78224f6a17c47d150c18f029b1030f346dfc5383acd49af57d7c1c9549b#25",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5876",
+        "timestamp": "1728323819"
+    },
+    {
+        "amount0": "-16396.304679446864006587",
+        "amount1": "30000",
+        "id": "0xd4615be9e2c62f2341be50d1354132be1e6c564e91e8ca8bf937170e0e2767ba#26",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6146",
+        "timestamp": "1728323855"
+    },
+    {
+        "amount0": "954.483959899150779491",
+        "amount1": "-1758.15603702710047818",
+        "id": "0xfe226bf56e8d32e36fb912d9d0c11958219807e193ceb32b8c6a5b75abce81fc#27",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6130",
+        "timestamp": "1728323867"
+    },
+    {
+        "amount0": "220.738121080938311933",
+        "amount1": "-406.204105066709868362",
+        "id": "0xc5132bf520faac946668f315aa71d414fc9f4194a9aaf286f1e8ddd5eb08b8c9#28",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6127",
+        "timestamp": "1728324023"
+    },
+    {
+        "amount0": "-6612.358445866124165866",
+        "amount1": "14450.89957452520219277",
+        "id": "0x9606749379d5dcb7c5d4774af81ef293b748601e6784ee2678cda5ce71e28d69#10",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7828",
+        "timestamp": "1728324071"
+    },
+    {
+        "amount0": "-5975.25587675876777612",
+        "amount1": "11114.997555169307952471",
+        "id": "0xfc3af9cf7a62494c8ae148633713c68b3fb06816242b12281cf0e6b2b6d86400#29",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6226",
+        "timestamp": "1728324071"
+    },
+    {
+        "amount0": "1018.649371956785576095",
+        "amount1": "-1891.785902322325383892",
+        "id": "0x5343c42394c4262980955104e2c59fcab018e03cda954f1c0a9e708cb996c29d#33",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6215",
+        "timestamp": "1728324143"
+    },
+    {
+        "amount0": "424.894693012522823008",
+        "amount1": "-783.136523032296285735",
+        "id": "0x71e1fa20fd8f3bb078264fcdabbe3ce1072d52c83f44a91072e1b52f7daf91f6#35",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6142",
+        "timestamp": "1728324203"
+    },
+    {
+        "amount0": "5960.31773706687085668",
+        "amount1": "-11025.484513824146489417",
+        "id": "0xad79b075503b0d59d70419c8e804b4589e3e518ff73b905893cf320b2db12188#34",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6147",
+        "timestamp": "1728324203"
+    },
+    {
+        "amount0": "-1755.405114427766379398",
+        "amount1": "3257.404619422055536846",
+        "id": "0xa93700aeb7f18d17912cf8d8b54984648def15e47dbb33a04fc273c9bd6a0d3d#36",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6162",
+        "timestamp": "1728324215"
+    },
+    {
+        "amount0": "642.810420859251529171",
+        "amount1": "-1186.4307522832359663",
+        "id": "0x2cc0e82d6b27f2c5840dc637482f8edf5e1dbfe79c773495e5db7e92e7eb576c#37",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6155",
+        "timestamp": "1728324239"
+    },
+    {
+        "amount0": "1521.77801050142909096",
+        "amount1": "-2805.295452031866542812",
+        "id": "0xe9a24934479d07fee23293e13b162be1965824cd15ac68f26ab726b882fe647f#38",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6138",
+        "timestamp": "1728324311"
+    },
+    {
+        "amount0": "1057",
+        "amount1": "-1945.667301419566913156",
+        "id": "0xf47a60b4ff807e8464725a748cf1b14c9f2beb50ea33f206ed97d4f90e02e006#39",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6126",
+        "timestamp": "1728324383"
+    },
+    {
+        "amount0": "-1510.690953566085542966",
+        "amount1": "2798.282213401786876455",
+        "id": "0xbff0648503e4bdb6f41a069a490a495b654af7b8a892539557bea8deeb2c1366#40",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6143",
+        "timestamp": "1728327011"
+    },
+    {
+        "amount0": "-218.53208627745542091",
+        "amount1": "405.188594804043093692",
+        "id": "0x474c634759f8f990c2549aa966908464bedd2b4165c67e66b630a54e0f698d00#41",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6145",
+        "timestamp": "1728336959"
+    },
+    {
+        "amount0": "-416.329999992119464296",
+        "amount1": "772.211448469885968735",
+        "id": "0xfb622fa8cbdfea16210d1f1c5bb618abe8617d7480e473c32d9a9988d8fac9d1#42",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6150",
+        "timestamp": "1728339551"
+    },
+    {
+        "amount0": "-465.179617881441850723",
+        "amount1": "863.250007280351810138",
+        "id": "0x2fedcf31c697d61a2573873d47a54ce0d3141fe401d444b39117bdbfe6bb8894#43",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6155",
+        "timestamp": "1728358727"
+    },
+    {
+        "amount0": "-695.912857008177177192",
+        "amount1": "1292.281697423433429374",
+        "id": "0xc1313ea29a3f8b155fdec0808092e59dbb0bb4d04c46c8566e0aaacd7ae90e21#44",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6163",
+        "timestamp": "1728373415"
+    },
+    {
+        "amount0": "-971.112118455644802908",
+        "amount1": "1805.024492621360486394",
+        "id": "0x7c54f0d10ce363245d3c73a22f588ef9d0c26b30f67c5d50f1bce9370c5138e7#45",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6174",
+        "timestamp": "1728373523"
+    },
+    {
+        "amount0": "-1534.566908993227921813",
+        "amount1": "2856.395261912123780022",
+        "id": "0x78955b002d057faab1195a5e7acb0988256ef4c1525b71158fcc2eb8f19e1c2d#46",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6192",
+        "timestamp": "1728378407"
+    },
+    {
+        "amount0": "-4768.065480757696612291",
+        "amount1": "8907.043961092904598982",
+        "id": "0x6346e0d4fa8442d2db84b2abda3219fe13600b55a43239868b4ce746d33c8773#47",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6246",
+        "timestamp": "1728383795"
+    },
+    {
+        "amount0": "-1424.923209698906346129",
+        "amount1": "2671.258563140359405331",
+        "id": "0x70195c0a732f1e55e84ec23e0eb77d34c842c8c3a05cb9b02e66679a606ac1bc#48",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6262",
+        "timestamp": "1728439139"
+    },
+    {
+        "amount0": "-2263.139261935741239967",
+        "amount1": "4251.582032365244352609",
+        "id": "0x30381c7958cdd6f3a57663273fa15b3be56351cf3ff55c882d3f8f9da59005a6#49",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6288",
+        "timestamp": "1728893879"
+    },
+    {
+        "amount0": "-1983.147743250565686331",
+        "amount1": "4356.481061010805741037",
+        "id": "0x01d6a81480e788eb5ce01047db7cdbf012d3cf3c87b6c58885cd80cea78cd4a6#11",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "7852",
+        "timestamp": "1728894023"
+    },
+    {
+        "amount0": "-931.832805825187676494",
+        "amount1": "1753.760646934532726985",
+        "id": "0xd879a4d51e1b9de32e653235f0dfc4ea0d2f13bae81055db4d35802eb00e2467#50",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "6299",
+        "timestamp": "1729537079"
+    },
+    {
+        "amount0": "0.897128862020374241",
+        "amount1": "-1.35910018301951451",
+        "id": "0x99dcf404b52ddbf5e8795a15753c5bb39b7f4c0cd857a1c66c0f5af4d3d8cecd#2",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4154",
+        "timestamp": "1729653875"
+    },
+    {
+        "amount0": "0.897114514388021745",
+        "amount1": "-2.638135774084231369",
+        "id": "0x57e18c4b011ebb109ae9c653ef11a2a39e82fca4eec68983a86ca7bb468fc942#2",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "10787",
+        "timestamp": "1729663559"
+    },
+    {
+        "amount0": "-19.369399775822450683",
+        "amount1": "56.97287918722953",
+        "id": "0xccc747fac4fb5ac41c095a42637c49afd0a4042411c596760d3bf5146e519ee5#3",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "10788",
+        "timestamp": "1729719839"
+    },
+    {
+        "amount0": "19.320976276382896716",
+        "amount1": "-29.269803953573644805",
+        "id": "0x228e06ce4b0df1d1eb61f2e484ffbd93b5e3b0476a1a8fcc8b91349c2401e78d#3",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4154",
+        "timestamp": "1729719911"
+    },
+    {
+        "amount0": "-92.082211119534506076",
+        "amount1": "139.532241202065890741",
+        "id": "0x7bd9fde2372baf32b296c160601fbd3ccb1ca43d182b8c6afc41876bc6f7ccc7#4",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4155",
+        "timestamp": "1729728383"
+    },
+    {
+        "amount0": "-26078.397934704276132507",
+        "amount1": "40223.50279047032",
+        "id": "0x7929c6ae2728cf65e825544035ba7c61dc1f0a6ba8ec6bc73c7d22cf8dd05a2d#5",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4509",
+        "timestamp": "1730503211"
+    },
+    {
+        "amount0": "26078.397934704282723889",
+        "amount1": "-72929.519420695793218533",
+        "id": "0xa7f4e221dc460d2d56d8e2d5f381226fe3e331223736545d98a5fcc2799a8f78#4",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "9782",
+        "timestamp": "1730503415"
+    },
+    {
+        "amount0": "-54.886432861764940824",
+        "amount1": "86.1695",
+        "id": "0x123fc480ac099f51e8da11a6f30103a84fe8c82106c1f1910a6e48e26d3e22b3#6",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4510",
+        "timestamp": "1730522495"
+    },
+    {
+        "amount0": "54.8864",
+        "amount1": "-145.942900730873836524",
+        "id": "0xf92ab28fa5b2a9fe30ac7ddfe70f1fa21ea78e00b3a5e3f1cdbf3cfbc08036c5#5",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "9779",
+        "timestamp": "1730522975"
+    },
+    {
+        "amount0": "2462.031673585340288087",
+        "amount1": "-6515.671997584583138579",
+        "id": "0xae0939eaefacd4c2f7d9c6dd56106dcaa267deef6f50afd99d81d5e961881f3c#6",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "9687",
+        "timestamp": "1730542703"
+    },
+    {
+        "amount0": "-8048.173690860612336415",
+        "amount1": "12705.683144526787",
+        "id": "0xa6787cc3f043fdffe956b2228dba956382a9f713f3cc2186d9967e9dcdcdb2ba#7",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4620",
+        "timestamp": "1730546819"
+    },
+    {
+        "amount0": "-5052.310844188637566534",
+        "amount1": "8048.17369086061",
+        "id": "0xd825893819ee387e35730b74c439c002736ea58bde6433efa283dacd24ec332f#8",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4690",
+        "timestamp": "1730546939"
+    },
+    {
+        "amount0": "-3153.742870853254257767",
+        "amount1": "5052.31084418864",
+        "id": "0x68161afcc4651e6756938cfe57c267d7b8ba297cb4b31bf638776c395c86d4cf#9",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4733",
+        "timestamp": "1730547083"
+    },
+    {
+        "amount0": "3153.742870853254544925",
+        "amount1": "-8258.966186999547751824",
+        "id": "0x2833fa3a0eaee71dea1eaffdc38c194c7b7ddb0dd09834fded7e76395d503627#7",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "9569",
+        "timestamp": "1730547191"
+    },
+    {
+        "amount0": "-5556.882913340719871124",
+        "amount1": "8955.96",
+        "id": "0x84fc5e9ee7f84bf14b3df5dc465248062d82f05268c51bf58a3b807d88061b7a#10",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4810",
+        "timestamp": "1730661311"
+    },
+    {
+        "amount0": "17907.377219736965218304",
+        "amount1": "-45115.432771583310062767",
+        "id": "0x04bd96a807cab4e50cf51ae61f889e78a38a3366648b7e81ba8dfbedea31515f#8",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "8913",
+        "timestamp": "1730661491"
+    },
+    {
+        "amount0": "-10065.972875363412828059",
+        "amount1": "25000",
+        "id": "0x8032faed71dc6d45a6664cf22a9521e75650543eba07e9ed0af1f08b332f2e82#9",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "9279",
+        "timestamp": "1730662199"
+    },
+    {
+        "amount0": "-27156.080576114019330587",
+        "amount1": "44779.7",
+        "id": "0x55c114b6f9429110ce2890309770798a14b3d1d310ee55d60362c4677754ee68#11",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "5191",
+        "timestamp": "1730662667"
+    },
+    {
+        "amount0": "17907.986331586567077888",
+        "amount1": "-43847.99022030815377192",
+        "id": "0x396ccf2838ea74ea502dea40e561bc7face77b30ac83fd61c31888ca596254ac#10",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "8632",
+        "timestamp": "1730662967"
+    },
+    {
+        "amount0": "-19193.889722608615949011",
+        "amount1": "32702.020980616871155581",
+        "id": "0xe642923d3fc556683edc60b1b26f7530686bb0a80ced817a5bfe471efb947632#12",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "5464",
+        "timestamp": "1730663495"
+    },
+    {
+        "amount0": "219.858327497902915584",
+        "amount1": "-379.607614882530388492",
+        "id": "0xc0790238a3b61b158e8519e767d52684060f51db190e706a05f6a774ca6eccd2#13",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "5461",
+        "timestamp": "1730723735"
+    },
+    {
+        "amount0": "-34707.562952647795886426",
+        "amount1": "87704.16",
+        "id": "0x5277fae30c601a3cf00d3da31850d28f89c6468d5ed7927f3f2aa51099b1bf21#11",
+        "pool": {
+            "id": "0x085ab0280c1dca006aec0dc90ac943e3a04da647"
+        },
+        "tick": "9906",
+        "timestamp": "1730801483"
+    },
+    {
+        "amount0": "34707.562952647795886426",
+        "amount1": "-58462.268773134050226676",
+        "id": "0xb2b2c462123bbb50b4af992e3432f58117b446ee7877be6c92e43eb4c01a6e8e#14",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4969",
+        "timestamp": "1730801555"
+    },
+    {
+        "amount0": "25000",
+        "amount1": "-40382.365820882276834192",
+        "id": "0xb709e382398adb536cb2c9b6d1b2c2e05c29a607d6b0f0b975e3539e1349b194#15",
+        "pool": {
+            "id": "0x39fb822fd7b1083d19a25dd5664176a1e33f4912"
+        },
+        "tick": "4623",
+        "timestamp": "1730801927"
+    },
+    {
+        "amount0": "0",
+        "amount1": "0",
+        "id": "0x914e2aa320319a4d57800f0f10805c7e9245e481c7d72e98eef1bf8bd38276e4#52",
+        "pool": {
+            "id": "0xec246ffddebdf77b6faeffa0380db3fa20ee5778"
+        },
+        "tick": "5340",
+        "timestamp": "1736554115"
+    },
+    {
+        "amount0": "0",
+        "amount1": "0",
+        "id": "0xc00960cf44d222d8219a4ddb2dd9c0820f82cfe6e04fd7586a19305741ff1665#13",
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900"
+        },
+        "tick": "6840",
+        "timestamp": "1736554127"
+    }
+]

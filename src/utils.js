@@ -170,3 +170,74 @@ export function parseToCsv(headers, data) {
 
   return csvContent
 }
+
+export function convertToFinalCSV(allData) {
+  // Normalize and group by address
+  const grouped = new Map();
+
+  for (const item of allData) {
+    const key = item.address
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(item);
+  }
+
+  const rows = [];
+
+  for (const [key, records] of grouped) {
+    const { address } = records[0];
+
+    // Sort by timestamp descending for latest
+    const sortedByTime = [...records].sort((a, b) => b.timestamp - a.timestamp);
+    const latest = sortedByTime[0];
+
+    // Aggregates
+    let maxShare = 0;
+    let maxSharePOH = 0;
+    let totalSeer = 0;
+    let sumShare = 0;
+    let sumSharePOH = 0;
+    let sumTotalHolding = 0;
+    let sumIndirect = 0;
+    let sumDirect = 0;
+
+    for (const r of records) {
+      maxShare = Math.max(maxShare, r.shareOfHolding ?? 0);
+      maxSharePOH = Math.max(maxSharePOH, r.shareOfHoldingPoh ?? 0);
+      totalSeer += r.seerTokens ?? 0;
+
+      sumShare += r.shareOfHolding ?? 0;
+      sumSharePOH += r.shareOfHoldingPoh ?? 0;
+      sumTotalHolding += r.totalHolding ?? 0;
+      sumIndirect += r.indirectHolding ?? 0;
+      sumDirect += r.directHolding ?? 0;
+    }
+
+    const count = records.length;
+
+    rows.push({
+      address,
+      latest_timestamp: new Date(latest.timestamp * 1000).toISOString(),
+      latest_share_of_holding: round(latest.shareOfHolding),
+      latest_share_of_holding_poh: round(latest.shareOfHoldingPoh),
+      max_share_of_holding: round(maxShare),
+      max_share_of_holding_poh: round(maxSharePOH),
+      total_seer_tokens: round(totalSeer),
+      avg_share_of_holding: round(sumShare / count),
+      avg_share_of_holding_poh: round(sumSharePOH / count),
+      avg_total_holding: round(sumTotalHolding / count),
+      avg_indirect_holding: round(sumIndirect / count),
+      avg_direct_holding: round(sumDirect / count),
+    });
+  }
+
+  const headers = Object.keys(rows[0]);
+  const csv = [headers.join(",")].concat(
+    rows.map((row) => headers.map((h) => row[h]).join(","))
+  ).join("\n");
+
+  return csv;
+
+  function round(val) {
+    return Math.round((val ?? 0) * 10000) / 10000;
+  }
+}

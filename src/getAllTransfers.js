@@ -64,7 +64,6 @@ export function getHoldersAtTimestamp(allTransfers, timestamp) {
         if (!tokenBalances[to]) {
             tokenBalances[to] = {};
         }
-
         tokenBalances[from][tokenId] = (tokenBalances[from][tokenId] || ethers.BigNumber.from(0)).sub(value);
         tokenBalances[to][tokenId] = (tokenBalances[to][tokenId] || ethers.BigNumber.from(0)).add(value);
     }

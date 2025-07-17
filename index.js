@@ -5,9 +5,10 @@ import { getAllTransfers, getHoldersAtTimestamp } from './src/getAllTransfers.js
 import { getAllLiquidityEvents, getLiquidityBalancesAtTimestamp } from './src/getLiquidityBalances.js';
 import { getPOHVerifiedUsers, isPOHVerifiedUserAtTime } from './src/getPOHVerifiedUsers.js';
 import { getPrices, getPricesFromJson } from './src/getPrices.js';
-import { getRandomNextDayTimestamp, getRandomTimestamps, parseToCsv } from './src/utils.js';
+import { getRandomNextDayTimestamp, getRandomTimestamps, parseToCsv, isTwoStringsEqual, convertToFinalCSV } from './src/utils.js';
 import { START_TIME } from './src/constants.js';
 import { getPoolHourDatas, getPoolHourDatasByTokenPairs } from './src/getPoolHourDatas.js';
+import { zeroAddress } from "viem";
 
 import timestamps from './data/timestamps.json' with {type: 'json'}
 import markets100 from './data/markets-100.json' with {type: 'json'}
@@ -17,6 +18,8 @@ import positionSnapshots100 from './data/positionSnapshots-100.json' with {type:
 import positionSnapshots1 from './data/positionSnapshots-1.json' with {type: 'json'}
 import requests100 from './data/requests-100.json' with {type: 'json'}
 import tokens100 from './data/tokens-100.json' with {type: 'json'}
+import processedPrices100 from './data/processedPrices-100.json' with {type: 'json'}
+
 
 import markets1 from './data/markets-1.json' with {type: 'json'}
 import transfers1 from './data/transfers-1.json' with {type: 'json'}
@@ -24,54 +27,30 @@ import liquidityEvents1 from './data/liquidityEvents-1.json' with {type: 'json'}
 import requests1 from './data/requests-1.json' with {type: 'json'}
 import tokens1 from './data/tokens-1.json' with {type: 'json'}
 import { getAllPositionSnapshots, getLiquidityBalancesByPositionAtTimestamp, getPositionSnapshotsByTokenPairs } from './src/getLiquidityBalancesByPosition.js';
-import { getBunniLpTokensByTokenPairs } from './src/getLpTokens.js';
 import { getAllTransfersOfTokenFromRpc } from './src/getAllTransfersFromRpc.js';
-import processedPrices from './data/processedPrices-100.json' with {type: 'json'}
+import processedPrices1 from './data/processedPrices-1.json' with {type: 'json'}
 
 import seed100 from './data/seed-100.json' with {type: 'json'}
 import seedTest100 from './data/seed-test-100.json' with {type: 'json'}
+import seed1 from './data/seed-1.json' with {type: 'json'}
+import seedTest1 from './data/seed-test-1.json' with {type: 'json'}
+import bunniTokens1 from './data/bunniTokens-1.json' with {type: 'json'}
+import bunniPoolHourDatas from './data/bunniPoolHourDatas.json' with {type: 'json'}
+import bunniSupplySnapshots from './data/bunniSupplySnapshot.json' with {type: 'json'}
+import bunniTokenDatas from './data/bunniTokenDatas.json' with {type: 'json'}
+import bunniTransfers from './data/bunniTransfers.json' with {type: 'json'}
+import bunniGauges from './data/bunniGauges.json' with {type: 'json'}
+import seed from './seed.json' with {type: 'json'}
+import seedResolved from './seed-resolved.json' with {type: 'json'}
 
 
 const SNAPSHOT_COUNT = 30
 const BATCH_SIZE = 20
 const SEER_PER_DAY = 200000000 / 30
 
-const finalSeedDay = 1748131200 //'2025-05-25T00:00:00.000Z'
 const startTimeBlog = 1728579600
-async function getSeedOutcomeTokensValueSnapshots(chainId) {
-    // console.log(seed100.length, seedTest100.length)
-    // const diff = []
-    // for (let i = 0; i < seed100.length; i++) {
-    //     const a = seed100[i]
-    //     const b = seedTest100[i]
-    //     for (const key of Object.keys(a)) {
-    //         if (a[key] !== b[key] && key === 'address') {
-    //             diff.push({
-    //                 key,
-    //                 addressA: a.address,
-    //                 valueA: a[key],
-    //                 valueB: b[key],
-    //                 ...a.address !== b.address && {
-    //                     addressB: b.address,
-    //                 }
-    //             })
-    //             // if (Math.abs(a[key] - b[key]) > 1) {
-    //             //     diff.push({
-    //             //         key,
-    //             //         addressA: a.address,
-    //             //         valueA: a[key],
-    //             //         valueB: b[key],
-    //             //         ...a.address !== b.address && {
-    //             //             addressB: b.address,
-    //             //         }
-    //             //     })
-    //             // }
+async function getSeedOutcomeTokensValueSnapshots(chainId, countResolved = false) {
 
-    //         }
-    //     }
-    // }
-    // fs.writeFileSync('./data/diff.json', JSON.stringify(diff, null, 4))
-    // return
     try {
         // FETCHING DATA
         // get random timestamps, one for each day
@@ -104,29 +83,46 @@ async function getSeedOutcomeTokensValueSnapshots(chainId) {
         // // get poh verified users
         // const requests = await getPOHVerifiedUsers(chainId)
         // fs.writeFileSync(`./data/requests-${chainId}.json`, JSON.stringify(requests, null, 4))
-        // const positionSnapshots = await getAllPositionSnapshots(chainId, tokens)
-        // fs.writeFileSync(`./data/positionSnapshots-${chainId}.json`, JSON.stringify(positionSnapshots, null, 4))
         // USE SEED DATA
+        const now = Math.floor(Date.now() / 1000)
         const transfers = chainId === 1 ? transfers1 : transfers100
         const liquidityEvents = chainId === 1 ? liquidityEvents1 : liquidityEvents100
-        const requests = chainId === 1 ? requests1 : requests100
         const markets = chainId === 1 ? markets1 : markets100
-        const tokens = chainId === 1 ? tokens1 : tokens100
-        const tokensByTimestamp = getTokensByTimestamp(markets, timestamps)
-        const positionSnapshots = chainId === 1 ? positionSnapshots1 : positionSnapshots100
-
-        // get prices at timestamps
+        const tokenToMarket = markets.reduce(
+            (acum, market) => {
+                for (let i = 0; i < market.wrappedTokens.length; i++) {
+                    const tokenId = market.wrappedTokens[i];
+                    acum[tokenId] = { market, tokenIndex: i };
+                }
+                return acum;
+            },
+            {},
+        );
+        const marketIdToMarket = markets.reduce(
+            (acum, market) => {
+                acum[market.id] = market
+                return acum;
+            },
+            {},
+        );
+        // const tokens = chainId === 1 ? tokens1 : tokens100
+        const tokensByTimestamp = getTokensByTimestamp(markets, timestamps, countResolved)
+        // const positionSnapshots = chainId === 1 ? positionSnapshots1 : positionSnapshots100
+        const processedPrices = chainId === 1 ? processedPrices1 : processedPrices100
+        // // get prices at timestamps
         // const processedPrices = timestamps.reduce((acc, timestamp) => {
         //     acc[timestamp.toString()] = getPricesFromJson(tokens, timestamp, chainId)
         //     return acc
         // }, {})
-        // START PROCESSING AIRDROP USERS
-        let finalData = []
+        // fs.writeFileSync(`./data/processedPrices-${chainId}.json`,JSON.stringify(processedPrices, null, 4))
+        // // START PROCESSING AIRDROP USERS
+        let finalData = {}
         for (const timestamp of timestamps) {
-            const users = {} // {[userAddress]:{directHolding, indirectHolding, isPOH, timestamp}}
+            const users = {} // {[userAddress]:{directHolding, indirectHolding}}
             const holdersAtTimestamp = getHoldersAtTimestamp(transfers, timestamp)
-            // const liquidityHoldersAtTimestamp = getLiquidityBalancesAtTimestamp(liquidityEvents, timestamp)
-            const liquidityHoldersAtTimestamp = getLiquidityBalancesByPositionAtTimestamp(positionSnapshots, timestamp)
+            const liquidityHoldersAtTimestamp = getLiquidityBalancesAtTimestamp(liquidityEvents, timestamp)
+            // const liquidityHoldersAtTimestamp = getLiquidityBalancesByPositionAtTimestamp(positionSnapshots, timestamp)
+            // const liquidityHoldersAtTimestamp = getBunniPoolsHoldersAtTimestamp(bunniTransfers, bunniPoolHourDatas, bunniSupplySnapshots, bunniTokenDatas, bunniGauges, timestamp)
             Object.entries(holdersAtTimestamp).map(([holderAddress, tokenBalanceMapping]) => {
                 if (!users[holderAddress]) {
                     users[holderAddress] = {}
@@ -134,6 +130,29 @@ async function getSeedOutcomeTokensValueSnapshots(chainId) {
                 users[holderAddress]['directHolding'] = (users[holderAddress]['directHolding'] ?? 0) + Object.entries(tokenBalanceMapping).reduce((acc, [tokenId, tokenBalance]) => {
                     if (!tokensByTimestamp[timestamp.toString()][tokenId]) {
                         return acc
+                    }
+                    if (countResolved) {
+                        const { market, tokenIndex } = tokenToMarket[tokenId]
+                        if (Number(market.finalizeTs) <= timestamp && market.payoutReported) {
+                            // use redeem price
+                            const sumPayout = market.payoutNumerators.reduce((acc, curr) => acc + Number(curr), 0);
+                            const payoutPrice = Number(market.payoutNumerators[tokenIndex]) / sumPayout;
+
+                            if (isTwoStringsEqual(market.parentMarket.id, zeroAddress)) {
+                                return acc + payoutPrice * tokenBalance;
+                            }
+                            // check if parent market has finalized
+                            const parentMarket = marketIdToMarket[market.parentMarket.id]
+                            if (Number(parentMarket.finalizeTs) <= timestamp && parentMarket.payoutReported) {
+                                // use redeem price
+                                const sumParentPayout = parentMarket.payoutNumerators.reduce((acc, curr) => acc + Number(curr), 0);
+                                const parentPayoutPrice =
+                                    Number(parentMarket.payoutNumerators[Number(market.parentOutcome)]) / sumParentPayout;
+                                return acc + payoutPrice * parentPayoutPrice * tokenBalance;
+                            }
+                            const parentTokenId = parentMarket.wrappedTokens[Number(market.parentOutcome)]
+                            return acc + payoutPrice * (processedPrices[timestamp.toString()][parentTokenId] ?? 0) * tokenBalance;
+                        }
                     }
                     return acc + (processedPrices[timestamp.toString()][tokenId] ?? 0) * tokenBalance
                 }, 0)
@@ -146,70 +165,108 @@ async function getSeedOutcomeTokensValueSnapshots(chainId) {
                     if (!tokensByTimestamp[timestamp.toString()][tokenId]) {
                         return acc
                     }
+                    if (countResolved) {
+                        const { market, tokenIndex } = tokenToMarket[tokenId]
+                        if (Number(market.finalizeTs) <= timestamp && market.payoutReported) {
+                            // use redeem price
+                            const sumPayout = market.payoutNumerators.reduce((acc, curr) => acc + Number(curr), 0);
+                            const payoutPrice = Number(market.payoutNumerators[tokenIndex]) / sumPayout;
+
+                            if (isTwoStringsEqual(market.parentMarket.id, zeroAddress)) {
+                                return acc + payoutPrice * tokenBalance;
+                            }
+                            // check if parent market has finalized
+                            const parentMarket = marketIdToMarket[market.parentMarket.id]
+                            if (Number(parentMarket.finalizeTs) <= timestamp && parentMarket.payoutReported) {
+                                // use redeem price
+                                const sumParentPayout = parentMarket.payoutNumerators.reduce((acc, curr) => acc + Number(curr), 0);
+                                const parentPayoutPrice =
+                                    Number(parentMarket.payoutNumerators[Number(market.parentOutcome)]) / sumParentPayout;
+                                return acc + payoutPrice * parentPayoutPrice * tokenBalance;
+                            }
+                            const parentTokenId = parentMarket.wrappedTokens[Number(market.parentOutcome)]
+                            return acc + payoutPrice * (processedPrices[timestamp.toString()][parentTokenId] ?? 0) * tokenBalance;
+                        }
+                    }
+
                     return acc + (processedPrices[timestamp.toString()][tokenId] ?? 0) * tokenBalance
                 }, 0)
 
             })
-            let total = 0
-            let pohTotal = 0
-            for (const [holderAddress, holderData] of Object.entries(users)) {
-                const totalHoldingPerUser = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
-                const isPOHUser = isPOHVerifiedUserAtTime(requests, holderAddress, timestamp)
-                total += totalHoldingPerUser
-                if (isPOHUser) {
-                    pohTotal += Math.sqrt(totalHoldingPerUser)
-                }
-            }
-            for (const [holderAddress, holderData] of Object.entries(users)) {
-                const totalHoldingPerUser = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
-                if (totalHoldingPerUser.toLocaleString() !== '0') {
-                    const isPOHUser = isPOHVerifiedUserAtTime(requests, holderAddress, timestamp)
-                    const shareOfHolding = totalHoldingPerUser / total
-                    const shareOfHoldingPoh = isPOHUser ? (Math.sqrt(totalHoldingPerUser) / pohTotal) : 0
-                    const seerTokens = SEER_PER_DAY * (shareOfHolding * 0.25 + shareOfHoldingPoh * 0.25);
-                    finalData.push({
-                        address: holderAddress,
-                        isPOHUser,
-                        timestamp,
-                        totalHolding: totalHoldingPerUser,
-                        directHolding: holderData.directHolding ?? 0,
-                        indirectHolding: holderData.indirectHolding ?? 0,
-                        shareOfHolding,
-                        shareOfHoldingPoh,
-                        seerTokens,
-                        chainId
-                    })
-                }
-            }
+            finalData[timestamp.toString()] = users
         }
-
-
-        fs.writeFileSync(`./data/seed-test-${chainId}.json`, JSON.stringify(finalData, null, 4))
+        return finalData
 
     } catch (e) {
         console.log(e)
-        // fs.writeFileSync('./data/error.json', JSON.stringify(e, null, 4))
+        throw (e)
     }
 }
 
 async function getAll(chainId) {
-    const tokens = [
-        "0x37b149404a64638ff73abd98faa8f0cdcd1cf4a4",
-        "0x84bd444e0fc068c411a1232b78edaccf0e405256",
-        "0xc5fab3ea4beb1e39e85d7ec0c1ef37a4c93adccd",
-        "0xac29366413ccb7fa87018b4224fa44e2b6e76ca2",
-        "0x381a858af49f646052324c8656353701339f9e76",
-        "0xfbdecd21245e44a8dc7f0065c38c437daa4d4240",
-        "0xa65b54b9007c29498a68af1cfcfc063e124715f9"
-    ]
-    let counter = 1
-    for (const token of tokens) {
-        console.log('start ', token)
-        const transfers = await getAllTransfersOfTokenFromRpc(token, chainId)
-        fs.writeFileSync(`./data/transfers-rpc-${counter}-${chainId}.json`, JSON.stringify(transfers, null, 4))
-        counter++
-    }
+    const tokens = chainId === 1 ? tokens1 : tokens100
+    // await getPoolHourDatasByTokenPairs(chainId, tokens)
+    const data = getPricesFromJson(tokens, 1752451211, chainId)
+    const final = Object.entries(data).filter(([key, value]) => value > 0).sort((a, b) => a[0].localeCompare(b[0])).map(x => x[1]).join('')
+    console.log(final)
 }
-// getAll(1)
-getSeedOutcomeTokensValueSnapshots(100)
-// getSeedOutcomeTokensValueSnapshots(1)
+getAll(100)
+async function exportCsv() {
+    const csv = convertToFinalCSV(seed)
+    fs.writeFileSync('./final.csv', csv)
+    const csvResolved = convertToFinalCSV(seedResolved)
+    fs.writeFileSync('./finalResolved.csv', csvResolved)
+}
+
+async function distributeAirdrop() {
+    // {[userAddress]:{directHolding, indirectHolding}}
+    const timestampToUsers1 = await getSeedOutcomeTokensValueSnapshots(1, false)
+    const timestampToUsers100 = await getSeedOutcomeTokensValueSnapshots(100, false)
+
+    const finalData = []
+    for (const timestamp of timestamps) {
+        const userHoldingsAcrossChains = {}
+        let total = 0
+        let pohTotal = 0
+        for (const timestampToUsers of [timestampToUsers1, timestampToUsers100]) {
+            for (const [holderAddress, holderData] of Object.entries(timestampToUsers[timestamp.toString()])) {
+                if (!userHoldingsAcrossChains[holderAddress]) {
+                    userHoldingsAcrossChains[holderAddress] = { directHolding: 0, indirectHolding: 0 }
+                }
+                const totalHoldingPerUser = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
+                const isPOHUser = isPOHVerifiedUserAtTime(requests1, holderAddress, timestamp) || isPOHVerifiedUserAtTime(requests100, holderAddress, timestamp)
+                total += totalHoldingPerUser
+                if (isPOHUser) {
+                    pohTotal += Math.sqrt(totalHoldingPerUser)
+                }
+                userHoldingsAcrossChains[holderAddress].directHolding += (holderData.directHolding ?? 0)
+                userHoldingsAcrossChains[holderAddress].indirectHolding += (holderData.indirectHolding ?? 0)
+            }
+        }
+        for (const [holderAddress, holderData] of Object.entries(userHoldingsAcrossChains)) {
+            const totalHoldingPerUser = (holderData.directHolding ?? 0) + (holderData.indirectHolding ?? 0)
+
+            if (totalHoldingPerUser.toLocaleString() !== '0') {
+                const isPOHUser = isPOHVerifiedUserAtTime(requests1, holderAddress, timestamp) || isPOHVerifiedUserAtTime(requests100, holderAddress, timestamp)
+                const shareOfHolding = totalHoldingPerUser / total
+                const shareOfHoldingPoh = isPOHUser ? (Math.sqrt(totalHoldingPerUser) / pohTotal) : 0
+                const seerTokens = SEER_PER_DAY * (shareOfHolding * 0.25 + shareOfHoldingPoh * 0.25);
+                finalData.push({
+                    address: holderAddress,
+                    isPOHUser,
+                    timestamp,
+                    totalHolding: totalHoldingPerUser,
+                    directHolding: holderData.directHolding ?? 0,
+                    indirectHolding: holderData.indirectHolding ?? 0,
+                    shareOfHolding,
+                    shareOfHoldingPoh,
+                    seerTokens,
+                })
+            }
+        }
+    }
+    fs.writeFileSync('seed.json', JSON.stringify(finalData, null, 4))
+}
+
+// distributeAirdrop()
+// exportCsv()

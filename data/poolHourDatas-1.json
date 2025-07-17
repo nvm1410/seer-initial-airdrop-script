@@ -125,7 +125,7 @@
         "periodStartUnix": 1728320400,
         "pool": {
             "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
-            "liquidity": "0",
+            "liquidity": "1375178105382162125",
             "token0": {
                 "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
                 "name": "Savings Dai"
@@ -165,7 +165,7 @@
         "periodStartUnix": 1728324000,
         "pool": {
             "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
-            "liquidity": "0",
+            "liquidity": "1375178105382162125",
             "token0": {
                 "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
                 "name": "Savings Dai"
@@ -345,7 +345,7 @@
         "periodStartUnix": 1728892800,
         "pool": {
             "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
-            "liquidity": "0",
+            "liquidity": "1375178105382162125",
             "token0": {
                 "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
                 "name": "Savings Dai"
@@ -425,7 +425,7 @@
         "periodStartUnix": 1729623600,
         "pool": {
             "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
-            "liquidity": "0",
+            "liquidity": "1375178105382162125",
             "token0": {
                 "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
                 "name": "Savings Dai"
@@ -905,7 +905,7 @@
         "periodStartUnix": 1736553600,
         "pool": {
             "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
-            "liquidity": "0",
+            "liquidity": "1375178105382162125",
             "token0": {
                 "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
                 "name": "Savings Dai"
@@ -938,5 +938,25 @@
         "sqrtPrice": "103473803439676782490535405519",
         "token0Price": "0.5862709045479434936650019702320235",
         "token1Price": "1.705696107793496972800197967421498"
+    },
+    {
+        "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900-485784",
+        "liquidity": "0",
+        "periodStartUnix": 1748822400,
+        "pool": {
+            "id": "0x9f0b99c0a64688390ae5901fb52f505ffd7bd900",
+            "liquidity": "1375178105382162125",
+            "token0": {
+                "id": "0x83f20f44975d03b1b09e64809b757c47f942beea",
+                "name": "Savings Dai"
+            },
+            "token1": {
+                "id": "0xd7f5879316b4e51ed66a1239e171ffa65bda8455",
+                "name": "HARRIS2024"
+            }
+        },
+        "sqrtPrice": "111532354540146638333812738287",
+        "token0Price": "0.5046118282125829861143134046382744",
+        "token1Price": "1.981721283748267137040836055655817"
     }
 ]
