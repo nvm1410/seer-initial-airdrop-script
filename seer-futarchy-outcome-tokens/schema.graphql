@@ -1,6 +1,0 @@
-type ExampleEntity @entity(immutable: true) {
-  id: Bytes!
-  count: BigInt!
-  proposal: Bytes! # address
-  marketName: String! # string
-}
