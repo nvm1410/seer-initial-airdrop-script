@@ -1,4 +1,6 @@
 import { COLLATERAL_TOKENS } from './constants.js'
+import { BigNumber } from 'ethers';
+import { TickMath } from '@uniswap/v3-sdk';
 
 export function getTokenPricesMapping(
   tokens,
@@ -108,7 +110,7 @@ export function getRandomNextDayTimestamp(timestampInSeconds, lastDateInSeconds)
 
   // Get milliseconds for start of next day
   const nextDayStartMs = date.getTime();
-  const nextDayStartSeconds = Math.floor(date.getTime()/1000);
+  const nextDayStartSeconds = Math.floor(date.getTime() / 1000);
   if (nextDayStartSeconds >= lastDateInSeconds) {
     return
   }
@@ -227,6 +229,7 @@ export function convertToFinalCSV(allData) {
       avg_total_holding: round(sumTotalHolding / count),
       avg_indirect_holding: round(sumIndirect / count),
       avg_direct_holding: round(sumDirect / count),
+      chain_ids: latest.chainIds.join(',')
     });
   }
 
@@ -240,4 +243,129 @@ export function convertToFinalCSV(allData) {
   function round(val) {
     return Math.round((val ?? 0) * 10000) / 10000;
   }
+}
+
+const Q96 = BigNumber.from(2).pow(96);
+
+function getSqrtPriceAtTick(tick) {
+  return BigNumber.from(TickMath.getSqrtRatioAtTick(tick).toString());
+}
+
+// Calculate amount0 and amount1 for burning X LP tokens
+export function calculateBurnAmounts(
+  X,
+  totalSupply,
+  liquidity,
+  tickCurrent,
+  tickLower,
+  tickUpper
+) {
+  const deltaL = liquidity.mul(X).div(totalSupply);
+
+  const sqrtLower = getSqrtPriceAtTick(tickLower);
+  const sqrtUpper = getSqrtPriceAtTick(tickUpper);
+  const sqrtCurrent = getSqrtPriceAtTick(tickCurrent);
+  let amount0;
+  let amount1;
+
+  if (tickCurrent < tickLower) {
+    // Below range: only token1
+    amount0 = BigNumber.from(0);
+    amount1 = deltaL.mul(sqrtUpper.sub(sqrtLower)).div(Q96);
+  } else if (tickCurrent >= tickUpper) {
+    // Above range: only token0
+    amount0 = deltaL
+      .mul(sqrtUpper.sub(sqrtLower))
+      .mul(Q96)
+      .div(sqrtLower.mul(sqrtUpper));
+    amount1 = BigNumber.from(0);
+  } else {
+    // In range: both token0 and token1
+    const invSqrtCurrent = Q96.mul(Q96).div(sqrtCurrent);
+    const invSqrtUpper = Q96.mul(Q96).div(sqrtUpper);
+
+    amount0 = deltaL.mul(invSqrtCurrent.sub(invSqrtUpper)).div(Q96);
+    amount1 = deltaL.mul(sqrtCurrent.sub(sqrtLower)).div(Q96);
+  }
+
+  return { amount0, amount1 };
+}
+
+export function mergeTokenBalances(map1, map2) {
+  const result = {};
+
+  // Merge map1 first
+  for (const [address, tokens] of Object.entries(map1)) {
+    result[address] = result[address] || {};
+    for (const [token, amount] of Object.entries(tokens)) {
+      result[address][token] = (result[address][token] || 0) + amount;
+    }
+  }
+
+  // Merge map2
+  for (const [address, tokens] of Object.entries(map2)) {
+    result[address] = result[address] || {};
+    for (const [token, amount] of Object.entries(tokens)) {
+      result[address][token] = (result[address][token] || 0) + amount;
+    }
+  }
+
+  // Optionally: filter out zero balances
+  for (const address in result) {
+    for (const token in result[address]) {
+      if (result[address][token] === 0) {
+        delete result[address][token];
+      }
+    }
+    if (Object.keys(result[address]).length === 0) {
+      delete result[address];
+    }
+  }
+
+  return result;
+}
+
+export function convertToSupabaseCSV(allData) {
+  function escapeCSVField(value) {
+    const stringValue = String(value);
+    if (/[",\n]/.test(stringValue)) {
+      return `"${stringValue.replace(/"/g, '""')}"`;
+    }
+    return stringValue;
+  }
+  const header = [
+    'address',
+    'is_poh',
+    'timestamp',
+    'total_holding',
+    'direct_holding',
+    'indirect_holding',
+    'share_of_holding',
+    'share_of_holding_poh',
+    'seer_tokens_count',
+    'chain_ids'
+  ];
+
+  const rows = allData.map(data => {
+    const values = [
+      data.address,
+      data.isPOHUser,
+      new Date(data.timestamp * 1000).toISOString(),
+      data.totalHolding ?? 0,
+      data.directHolding ?? 0,
+      data.indirectHolding ?? 0,
+      data.shareOfHolding ?? 0,
+      data.shareOfHoldingPoh ?? 0,
+      data.seerTokens ?? 0,
+      Array.isArray(data.chainIds)
+        ? JSON.stringify(data.chainIds)
+        : '[]'
+    ];
+
+    return values.map(escapeCSVField).join(',');
+  });
+
+  const csvContent = [header.join(','), ...rows].join('\n');
+
+  return csvContent
 }

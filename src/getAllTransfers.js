@@ -46,6 +46,54 @@ export async function getAllTransfers(chainId) {
     return allTransfers
 }
 
+export async function getAllFutarchyTransfers(chainId) {
+    if (chainId !== 100) {
+        return []
+    }
+    const maxAttempts = 20;
+    let attempt = 0;
+    let allTransfers = [];
+    let currentTimestamp = undefined;
+    while (true) {
+        const query = `{
+              transfers(first: 1000, orderBy: timestamp, orderDirection: asc${currentTimestamp ? `, where: {timestamp_gt: "${currentTimestamp}"}` : ""
+            }) {
+                id
+                from
+                to
+                token {
+                    id
+                }
+                timestamp
+                blockNumber
+                value
+              }
+            }`;
+        const results = await fetch('https://gateway.thegraph.com/api/a3d37662f27d87b20e3d8d7149e85910/subgraphs/id/H8uG6j77JyfwRv31aYfJcFby8eRfXSpbwqiuzPQfCQJD', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                query,
+            }),
+        });
+        const json = await results.json();
+        const transfers = (json?.data?.transfers ?? []);
+        allTransfers = allTransfers.concat(transfers);
+
+        if (transfers[transfers.length - 1]?.timestamp === currentTimestamp) {
+            break;
+        }
+        if (transfers.length < 1000) {
+            break; // We've fetched all
+        }
+        currentTimestamp = transfers[transfers.length - 1]?.timestamp;
+        attempt++;
+    }
+    return allTransfers
+}
+
 export function getHoldersAtTimestamp(allTransfers, timestamp) {
     const records = allTransfers.filter(transfer => Number(transfer.timestamp) <= timestamp)
     const tokenBalances = {};

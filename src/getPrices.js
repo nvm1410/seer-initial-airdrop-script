@@ -53,11 +53,37 @@ export async function getPrices(tokens, startTime, chainId) {
 }
 
 
-export function getPricesFromJson(tokens, startTime, chainId) {
-    if (tokens.length === 0) {
-        return {};
+function buildPoolMap(poolHourDatas) {
+    const map = new Map();
+    for (const data of poolHourDatas) {
+        const token0 = data.pool.token0.id.toLowerCase();
+        const token1 = data.pool.token1.id.toLowerCase();
+        const key = `${token0}_${token1}`
+        if (!map.has(key)) map.set(key, []);
+        map.get(key).push(data);
     }
-    const poolHourDatas = chainId === 1 ? poolHourDatas1 : poolHourDatas100
+    // Sort each array descending by timestamp so findLast becomes findFirst
+    for (const list of map.values()) {
+        list.sort((a, b) => Number(b.periodStartUnix) - Number(a.periodStartUnix));
+    }
+    return map;
+}
+
+function getLatestPoolData(poolList, startTime) {
+    for (const data of poolList ?? []) {
+        if (Number(data.periodStartUnix) <= startTime) {
+            return data;
+        }
+    }
+    return null;
+}
+
+export function getPricesFromJson(tokens, startTime, chainId) {
+    if (!tokens.length) return {};
+
+    const poolHourDatas = chainId === 1 ? poolHourDatas1 : poolHourDatas100;
+    const poolMap = buildPoolMap(poolHourDatas);
+
     const [simpleTokens, conditionalTokens] = tokens.reduce(
         (acc, curr) => {
             acc[curr.parentTokenId ? 1 : 0].push(curr);
@@ -66,50 +92,31 @@ export function getPricesFromJson(tokens, startTime, chainId) {
         [[], []],
     );
 
-    const simpleTokensMapping = simpleTokens.reduce(
-        (acc, { tokenId }) => {
-            let isTokenPrice0 = true;
-            const correctPoolHourData = poolHourDatas.findLast((poolHourData) => {
-                const sDAIAddress = COLLATERAL_TOKENS[chainId].primary.address;
-                if (sDAIAddress > tokenId.toLocaleLowerCase()) {
-                    isTokenPrice0 = false;
-                    return isTwoStringsEqual(poolHourData.pool.token0.id, tokenId) && isTwoStringsEqual(poolHourData.pool.token1.id, sDAIAddress) && Number(poolHourData.periodStartUnix) <= startTime;
-                }
-                return isTwoStringsEqual(poolHourData.pool.token1.id, tokenId) && isTwoStringsEqual(poolHourData.pool.token0.id, sDAIAddress) && Number(poolHourData.periodStartUnix) <= startTime;
-            });
+    const sDAIAddress = COLLATERAL_TOKENS[chainId].primary.address.toLowerCase();
+    const simpleTokensMapping = {};
 
-            acc[tokenId.toLocaleLowerCase()] = correctPoolHourData
-                ? isTokenPrice0
-                    ? Number(correctPoolHourData.token0Price)
-                    : Number(correctPoolHourData.token1Price)
-                : 0;
-            return acc;
-        },
-        {},
-    );
+    for (const { tokenId } of simpleTokens) {
+        const tid = tokenId.toLowerCase();
+        const [t0, t1] = tid < sDAIAddress ? [tid, sDAIAddress] : [sDAIAddress, tid];
+        const key = `${t0}_${t1}`;
+        const data = getLatestPoolData(poolMap.get(key), startTime);
+        simpleTokensMapping[tid] = data
+            ? (data.pool.token0.id.toLowerCase() === tid ? Number(data.token1Price) : Number(data.token0Price))
+            : 0;
+    }
 
-    const conditionalTokensMapping = conditionalTokens.reduce(
-        (acc, { tokenId, parentTokenId }) => {
-            let isTokenPrice0 = true;
-            const correctPoolHourData = poolHourDatas.findLast((poolHourData) => {
-                if (parentTokenId.toLocaleLowerCase() > tokenId.toLocaleLowerCase()) {
-                    isTokenPrice0 = false;
-                    return isTwoStringsEqual(poolHourData.pool.token0.id, tokenId) && isTwoStringsEqual(poolHourData.pool.token1.id, parentTokenId) && Number(poolHourData.periodStartUnix) <= startTime;
-                }
-                return isTwoStringsEqual(poolHourData.pool.token1.id, tokenId) && isTwoStringsEqual(poolHourData.pool.token0.id, parentTokenId) && Number(poolHourData.periodStartUnix) <= startTime;
-            });
+    const conditionalTokensMapping = {};
+    for (const { tokenId, parentTokenId } of conditionalTokens) {
+        const tid = tokenId.toLowerCase();
+        const pid = parentTokenId.toLowerCase();
+        const [t0, t1] = tid < pid ? [tid, pid] : [pid, tid];
+        const key = `${t0}_${t1}`;
+        const data = getLatestPoolData(poolMap.get(key), startTime);
+        const relativePrice = data
+            ? (data.pool.token0.id.toLowerCase() === tid ? Number(data.token1Price) : Number(data.token0Price))
+            : 0;
+        conditionalTokensMapping[tid] = relativePrice * (simpleTokensMapping[pid] || 0);
+    }
 
-            const relativePrice = correctPoolHourData
-                ? isTokenPrice0
-                    ? Number(correctPoolHourData.token0Price)
-                    : Number(correctPoolHourData.token1Price)
-                : 0;
-
-            acc[tokenId.toLocaleLowerCase()] =
-                relativePrice * (simpleTokensMapping?.[parentTokenId.toLocaleLowerCase()] || 0);
-            return acc;
-        },
-        {},
-    );
     return { ...simpleTokensMapping, ...conditionalTokensMapping };
 }

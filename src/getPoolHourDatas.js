@@ -4,6 +4,7 @@ import JSONStream from 'JSONStream';
 import { mainnet } from "wagmi/chains";
 import { COLLATERAL_TOKENS, START_TIME, SUBGRAPHS } from "./constants.js";
 import { getToken0Token1 } from "./utils.js";
+import pLimit from "p-limit";
 
 export async function getPoolHourDatas(chainId) {
     let allData = [];
@@ -219,17 +220,19 @@ export async function getPoolHourDatasByTokenPair(chainId, tokenPair) {
 }
 
 export async function getPoolHourDatasByTokenPairs(chainId, tokenPairs) {
-    let allData = []
+    
+    const limit = pLimit(50)
     const sortedTokenPairs = tokenPairs.map(({ tokenId, parentTokenId }) => {
         const collateral = parentTokenId
             ? parentTokenId.toLocaleLowerCase()
             : COLLATERAL_TOKENS[chainId].primary.address.toLocaleLowerCase();
         return getToken0Token1(tokenId, collateral)
     })
+    const promises = []
     for (const tokenPair of sortedTokenPairs) {
-        const data = await getPoolHourDatasByTokenPair(chainId, tokenPair)
-        allData.push(...data)
+        promises.push(limit(()=>getPoolHourDatasByTokenPair(chainId, tokenPair)))
     }
+    const allData = (await Promise.all(promises)).flat()
     allData.sort((a, b) => Number(a.periodStartUnix) - Number(b.periodStartUnix))
     await fs.writeFile(`./data/poolHourDatas-${chainId}.json`, JSON.stringify(allData, null, 4))
 }

@@ -3,6 +3,7 @@ import fs from 'fs/promises';
 import { mainnet } from "wagmi/chains";
 import { COLLATERAL_TOKENS, START_TIME, SUBGRAPHS } from "./constants.js";
 import { getToken0Token1, isTwoStringsEqual } from "./utils.js";
+import pLimit from "p-limit";
 
 
 export async function fetchPositionSnapshots(chainId, tokenPairs) {
@@ -75,7 +76,7 @@ export function getLiquidityBalancesByPositionAtTimestamp(positionSnapshots, tim
   const farmingContract = '0xDe51dDF1aE7d5BBD7bF1A0e40aAA1F6C12579106'
   const uniquePositionsSnapshotsMapping = positionSnapshots.reduce((acc, snapshot) => {
     const currentPositionTimestamp = acc[snapshot.position.id]?.timestamp
-    if (!currentPositionTimestamp || (Number(snapshot.timestamp) > currentPositionTimestamp && Number(snapshot.timestamp) <= timestamp && !isTwoStringsEqual(snapshot.owner, farmingContract))) {
+    if (!currentPositionTimestamp || (Number(snapshot.timestamp) > Number(currentPositionTimestamp) && Number(snapshot.timestamp) <= timestamp && !isTwoStringsEqual(snapshot.owner, farmingContract))) {
       acc[snapshot.position.id] = snapshot
     }
     return acc
@@ -208,17 +209,18 @@ export async function getPositionSnapshotsByTokenPair(chainId, tokenPair) {
 }
 
 export async function getPositionSnapshotsByTokenPairs(chainId, tokenPairs) {
-  let allData = []
+  const limit = pLimit(50)
   const sortedTokenPairs = tokenPairs.map(({ tokenId, parentTokenId }) => {
     const collateral = parentTokenId
       ? parentTokenId.toLocaleLowerCase()
       : COLLATERAL_TOKENS[chainId].primary.address.toLocaleLowerCase();
     return getToken0Token1(tokenId, collateral)
   })
+  const promises = []
   for (const tokenPair of sortedTokenPairs) {
-    const data = await getPositionSnapshotsByTokenPair(chainId, tokenPair)
-    allData.push(...data)
+    promises.push(limit(()=>getPositionSnapshotsByTokenPair(chainId, tokenPair)))
   }
+  const allData = (await Promise.all(promises)).flat()
   allData.sort((a, b) => Number(a.timestamp) - Number(b.timestamp))
   await fs.writeFile(`./data/positionSnapshots-${chainId}.json`, JSON.stringify(allData, null, 4))
 }
